@@ -73,6 +73,12 @@ $ sudo apt-get -y install netcat
 
 ### 使用 acme.sh 生成证书
 
+#### 如果报错 Please install socat tools first.
+
+如果生成证书时报错 `......Please install socat tools first.` , 请先执行以下命令：
+
+`apt-get install socat`  or  `yum install socat`
+
 #### 主域名证书生成
 此步骤仅仅生产主域名的证书，为了防止主域名被封锁，我们可以同时生成一些子域名证书，使用的时候先使用子域名，如果子域名被封了，可以再换一个子域名来用，不用重新申请新的域名。而如果直接使用主域名，主域名一旦被封，就只能申请新域名了。如果想同时生成一些子域名，请跳过此步骤，直接看后文：同时生成多个子域名证书。
 
