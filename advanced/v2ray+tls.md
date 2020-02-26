@@ -1,6 +1,6 @@
 # 自建V2Ray+TLS翻墙配置方法
 
-技术上，目前v2ray比Shadowsocks翻墙效果更好，据网络传言，2019年中期开始Shadowsocks能够被墙自动被探测阻断后，[自建V2ray翻墙](https://github.com/bannedbook/fanqiang/blob/master/v2ss/%E8%87%AA%E5%BB%BAV2ray%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B.md) 就成了更加成熟和稳定的翻墙方案。具体来说，要用v2ray + tls，或者v2ray + tls + ws。
+技术上，目前v2ray比Shadowsocks翻墙效果更好，据网络传言，2019年中期开始Shadowsocks能够被墙自动被探测阻断，因此，目前[自建V2ray翻墙](https://github.com/bannedbook/fanqiang/blob/master/v2ss/%E8%87%AA%E5%BB%BAV2ray%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B.md) 就成了更加成熟和稳定的翻墙方案。具体来说，要用v2ray + tls，或者v2ray + tls + ws。
 
 线路上，最少用cn2，如果预算允许，最好上cn2 gia，推荐[搬瓦工VPS,可选cn2或cn2 gia线路](https://github.com/bannedbook/fanqiang/blob/master/v2ss/%E7%BF%BB%E5%A2%99VPS%E6%8E%A8%E8%8D%90%EF%BC%9A%E6%90%AC%E7%93%A6%E5%B7%A5VPS%E8%B4%AD%E4%B9%B0%E6%95%99%E7%A8%8B.md)。在2017年时，普通的cn2线路就可流畅看1080P youtube，但到2019、2020年，cn2线路则经常卡顿。
 在操作系统上，可加入最新的bbr技术,详见： [最简单的Google BBR 一键加速VPS教程](https://github.com/bannedbook/fanqiang/blob/master/v2ss/%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84Google%20BBR%20%E4%B8%80%E9%94%AE%E5%8A%A0%E9%80%9FVPS%E6%95%99%E7%A8%8B.md)。BBR技术，可以更好地抢占带宽，从而达到同样带宽，速度更快的目的。CentOS, Debian, ubuntu都支持BBR, 推荐使用最新版Debian操作系统 。
