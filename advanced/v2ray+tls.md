@@ -1,5 +1,9 @@
 # 自建V2Ray+TLS翻墙配置方法
 
+## bannedbook修订历史
+- 2020-02-26 bannedbook:为保护主域名免被封，增加子域名配置方式。
+- 2020-02-26 bannedbook:增加个人使用体验，增加域名注册推荐，启用Google BBR加速推荐。
+
 技术上，目前v2ray比[Shadowsocks翻墙](https://github.com/bannedbook/fanqiang/blob/master/v2ss/%E8%87%AA%E5%BB%BAShadowsocks%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B.md)效果更好，据网络传言，2019年中期开始Shadowsocks能够被墙自动探测阻断，因此，目前[自建V2ray翻墙](https://github.com/bannedbook/fanqiang/blob/master/v2ss/%E8%87%AA%E5%BB%BAV2ray%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B.md) 就成了更加成熟和稳定的翻墙方案。
 
 以个人实际感受而言，近期使用Shadowsocks翻墙即使是使用了新版的AEAD加密模式，也是一两周时间会被封端口，不得不定期更换Shadowsocks服务器监听端口。而同时在使用的v2ray（仅仅默认配置，未加TLS配置）则一直坚挺。而V2Ray+TLS翻墙模式，则比[V2Ray默认配置](https://github.com/bannedbook/fanqiang/blob/master/v2ss/%E8%87%AA%E5%BB%BAV2ray%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B.md)更加安全稳定，翻墙效果更好，不易被检测，因此推荐愿意动手折腾的网友不妨折腾一下。
@@ -351,10 +355,3 @@ Hostname 中输入你的域名，点提交，过一会结果就出来了。
 
 -----
 本文fork修订自 ToutyRater 的教程，具体见顶部连接。
-## 更新历史
-
-- 2017-08-06 加点提醒
-- 2017-12-31 修正文字错误
-- 2018-04-05 Update
-- 2018-11-17 V4.0+ 配置
-- 2020-02-26 bannedbook:增加个人使用体验，增加域名注册推荐，启用Google BBR加速推荐。
