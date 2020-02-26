@@ -226,7 +226,7 @@ $ sudo ~/.acme.sh/acme.sh --renew -d mydomain.me -d www.mydomain.me -d v01.mydom
 ```
 $ sudo ~/.acme.sh/acme.sh --installcert -d mydomain.me --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
 ```
-或者同时安装子域名证书和密钥安装到 /etc/v2ray 中：
+或者同时将子域名证书和密钥安装到 /etc/v2ray 中：
 ```
 $ sudo ~/.acme.sh/acme.sh --installcert -d mydomain.me -d www.mydomain.me -d v01.mydomain.me -d v02.mydomain.me -d v03.mydomain.me -d v04.mydomain.me -d v05.mydomain.me -d v06.mydomain.me -d v07.mydomain.me -d v08.mydomain.me -d v09.mydomain.me --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
 ```
@@ -236,7 +236,7 @@ $ sudo ~/.acme.sh/acme.sh --installcert -d mydomain.me -d www.mydomain.me -d v01
 ```
 $ sudo ~/.acme.sh/acme.sh --installcert -d mydomain.me --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key
 ```
-或者同时安装子域名证书和密钥安装到 /etc/v2ray 中：
+或者同时将子域名证书和密钥安装到 /etc/v2ray 中：
 ```
 $ sudo ~/.acme.sh/acme.sh --installcert -d mydomain.me -d www.mydomain.me -d v01.mydomain.me -d v02.mydomain.me -d v03.mydomain.me -d v04.mydomain.me -d v05.mydomain.me -d v06.mydomain.me -d v07.mydomain.me -d v08.mydomain.me -d v09.mydomain.me --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key
 ```
