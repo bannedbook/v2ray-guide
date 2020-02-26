@@ -74,9 +74,9 @@ $ sudo apt-get -y install netcat
 ### 使用 acme.sh 生成证书
 
 #### 证书生成
+此步骤仅仅生产主域名的证书，为了防止主域名被封锁，我们可以同时生成一些子域名证书，使用的时候先使用子域名，如果子域名被封了，可以再换一个子域名来用，不用重新申请新的域名。而如果直接使用主域名，主域名一旦被封，就只能申请新域名了。如果想同时生成一些子域名，请跳过此步骤，直接看后文：同时生成多个子域名证书。
 
-执行以下命令生成证书：
-
+执行以下命令生成主域名证书：
 以下的命令会临时监听 80 端口，请确保执行该命令前 80 端口没有使用
 ```
 $ sudo ~/.acme.sh/acme.sh --issue -d mydomain.me --standalone -k ec-256
@@ -110,6 +110,80 @@ gPUI45eltrjcv8FCSTOUcT7PWCa3
 [Fri Dec 30 08:59:16 HKT 2016] And the full chain certs is there:  /root/.acme.sh/mydomain.me_ecc/fullchain.cer
 ```
 `-k` 表示密钥长度，后面的值可以是 `ec-256` 、`ec-384`、`2048`、`3072`、`4096`、`8192`，带有 `ec` 表示生成的是 ECC 证书，没有则是 RSA 证书。在安全性上 256 位的 ECC 证书等同于 3072 位的 RSA 证书。
+
+#### 同时生成多个子域名证书
+
+执行以下命令生成多个子域名证书：
+以下的命令会临时监听 80 端口，请确保执行该命令前 80 端口没有使用，并确保所有子域名的A记录到VPS的ip地址。
+```
+$ sudo ~/.acme.sh/acme.sh --issue --standalone -k ec-256 -d mydomain.me -d v01.mydomain.me -d v02.mydomain.me -d v03.mydomain.me -d v04.mydomain.me -d v05.mydomain.me -d v06.mydomain.me -d v07.mydomain.me -d v08.mydomain.me -d v09.mydomain.me
+[Wed 26 Feb 2020 07:16:01 AM MSK] Standalone mode.
+[Wed 26 Feb 2020 07:16:01 AM MSK] Standalone mode.
+[Wed 26 Feb 2020 07:16:01 AM MSK] Standalone mode.
+[Wed 26 Feb 2020 07:16:01 AM MSK] Standalone mode.
+[Wed 26 Feb 2020 07:16:01 AM MSK] Standalone mode.
+[Wed 26 Feb 2020 07:16:01 AM MSK] Standalone mode.
+[Wed 26 Feb 2020 07:16:01 AM MSK] Standalone mode.
+[Wed 26 Feb 2020 07:16:02 AM MSK] Standalone mode.
+[Wed 26 Feb 2020 07:16:02 AM MSK] Standalone mode.
+[Wed 26 Feb 2020 07:16:02 AM MSK] Standalone mode.
+[Wed 26 Feb 2020 07:16:02 AM MSK] Multi domain='DNS:mydomain.me,DNS:v01.mydomain.me,DNS:v02.mydomain.me,DNS:v03.mydomain.me,DNS:v04.mydomain.me,DNS:v05.mydomain.me,DNS:v06.mydomain.me,DNS:v07.mydomain.me,DNS:v08.mydomain.me,DNS:v09.mydomain.me'
+[Wed 26 Feb 2020 07:16:02 AM MSK] Getting domain auth token for each domain
+[Wed 26 Feb 2020 07:16:14 AM MSK] Getting webroot for domain='mydomain.me'
+[Wed 26 Feb 2020 07:16:14 AM MSK] Getting webroot for domain='v01.mydomain.me'
+[Wed 26 Feb 2020 07:16:14 AM MSK] Getting webroot for domain='v02.mydomain.me'
+[Wed 26 Feb 2020 07:16:14 AM MSK] Getting webroot for domain='v03.mydomain.me'
+[Wed 26 Feb 2020 07:16:14 AM MSK] Getting webroot for domain='v04.mydomain.me'
+[Wed 26 Feb 2020 07:16:14 AM MSK] Getting webroot for domain='v05.mydomain.me'
+[Wed 26 Feb 2020 07:16:14 AM MSK] Getting webroot for domain='v06.mydomain.me'
+[Wed 26 Feb 2020 07:16:15 AM MSK] Getting webroot for domain='v07.mydomain.me'
+[Wed 26 Feb 2020 07:16:15 AM MSK] Getting webroot for domain='v08.mydomain.me'
+[Wed 26 Feb 2020 07:16:15 AM MSK] Getting webroot for domain='v09.mydomain.me'
+[Wed 26 Feb 2020 07:16:15 AM MSK] Verifying: mydomain.me
+[Wed 26 Feb 2020 07:16:15 AM MSK] Standalone mode server
+[Wed 26 Feb 2020 07:16:20 AM MSK] Success
+[Wed 26 Feb 2020 07:16:20 AM MSK] Verifying: v01.mydomain.me
+[Wed 26 Feb 2020 07:16:20 AM MSK] Standalone mode server
+[Wed 26 Feb 2020 07:16:25 AM MSK] Success
+[Wed 26 Feb 2020 07:16:25 AM MSK] Verifying: v02.mydomain.me
+[Wed 26 Feb 2020 07:16:25 AM MSK] Standalone mode server
+[Wed 26 Feb 2020 07:16:30 AM MSK] Success
+[Wed 26 Feb 2020 07:16:30 AM MSK] Verifying: v03.mydomain.me
+[Wed 26 Feb 2020 07:16:30 AM MSK] Standalone mode server
+[Wed 26 Feb 2020 07:16:34 AM MSK] Success
+[Wed 26 Feb 2020 07:16:34 AM MSK] Verifying: v04.mydomain.me
+[Wed 26 Feb 2020 07:16:34 AM MSK] Standalone mode server
+[Wed 26 Feb 2020 07:16:39 AM MSK] Success
+[Wed 26 Feb 2020 07:16:39 AM MSK] Verifying: v05.mydomain.me
+[Wed 26 Feb 2020 07:16:39 AM MSK] Standalone mode server
+[Wed 26 Feb 2020 07:16:44 AM MSK] Success
+[Wed 26 Feb 2020 07:16:44 AM MSK] Verifying: v06.mydomain.me
+[Wed 26 Feb 2020 07:16:44 AM MSK] Standalone mode server
+[Wed 26 Feb 2020 07:16:49 AM MSK] Success
+[Wed 26 Feb 2020 07:16:49 AM MSK] Verifying: v07.mydomain.me
+[Wed 26 Feb 2020 07:16:49 AM MSK] Standalone mode server
+[Wed 26 Feb 2020 07:16:54 AM MSK] Success
+[Wed 26 Feb 2020 07:16:54 AM MSK] Verifying: v08.mydomain.me
+[Wed 26 Feb 2020 07:16:54 AM MSK] Standalone mode server
+[Wed 26 Feb 2020 07:16:59 AM MSK] Success
+[Wed 26 Feb 2020 07:16:59 AM MSK] Verifying: v09.mydomain.me
+[Wed 26 Feb 2020 07:16:59 AM MSK] Standalone mode server
+[Wed 26 Feb 2020 07:17:04 AM MSK] Success
+[Wed 26 Feb 2020 07:17:04 AM MSK] Verify finished, start to sign.
+[Wed 26 Feb 2020 07:17:04 AM MSK] Lets finalize the order, Le_OrderFinalize: https://acme-v02.api.letsencrypt.org/acme/finalize/79079285/2448775497
+[Wed 26 Feb 2020 07:17:05 AM MSK] Download cert, Le_LinkCert: https://acme-v02.api.letsencrypt.org/acme/cert/0350b8df26fbc60c527ecb8c0101584651cd
+[Wed 26 Feb 2020 07:17:06 AM MSK] Cert success.
+-----BEGIN CERTIFICATE-----
+MIIFFTCCA/2gAwIBAgISA1C43yb7xgxSfsuMAQFYRlHNMA0GCSqGSIb3DQEBCwUA
+****************************************************************
+cecDBr/zgr92GmyUSId5tCWP+hlnGM7qpgunXSxU5x7yEZOwhkNwivmuHjWFAUnc
+GlXu957MecVO
+-----END CERTIFICATE-----
+[Wed 26 Feb 2020 07:17:06 AM MSK] Your cert is in  /root/.acme.sh/mydomain.me_ecc/mydomain.me.cer 
+[Wed 26 Feb 2020 07:17:06 AM MSK] Your cert key is in  /root/.acme.sh/mydomain.me_ecc/mydomain.me.key 
+[Wed 26 Feb 2020 07:17:06 AM MSK] The intermediate CA cert is in  /root/.acme.sh/mydomain.me_ecc/ca.cer 
+[Wed 26 Feb 2020 07:17:06 AM MSK] And the full chain certs is there:  /root/.acme.sh/mydomain.me_ecc/fullchain.cer 
+```
 
 #### 证书更新
 
