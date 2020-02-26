@@ -202,10 +202,18 @@ GlXu957MecVO
 ```
 $ sudo ~/.acme.sh/acme.sh --renew -d mydomain.com --force --ecc
 ```
+或者同时更新子域名，执行：
+```
+$ sudo ~/.acme.sh/acme.sh --renew -d mydomain.me -d www.mydomain.me -d v01.mydomain.me -d v02.mydomain.me -d v03.mydomain.me -d v04.mydomain.me -d v05.mydomain.me -d v06.mydomain.me -d v07.mydomain.me -d v08.mydomain.me -d v09.mydomain.me --force --ecc
+```
 
 如果是 RSA 证书则执行：
 ```
 $ sudo ~/.acme.sh/acme.sh --renew -d mydomain.com --force
+```
+或者同时更新子域名，执行：
+```
+$ sudo ~/.acme.sh/acme.sh --renew -d mydomain.me -d www.mydomain.me -d v01.mydomain.me -d v02.mydomain.me -d v03.mydomain.me -d v04.mydomain.me -d v05.mydomain.me -d v06.mydomain.me -d v07.mydomain.me -d v08.mydomain.me -d v09.mydomain.me --force
 ```
 
 **由于本例中将证书生成到 `/etc/v2ray/` 文件夹，更新证书之后还得把新证书生成到 /etc/v2ray。**
@@ -218,11 +226,19 @@ $ sudo ~/.acme.sh/acme.sh --renew -d mydomain.com --force
 ```
 $ sudo ~/.acme.sh/acme.sh --installcert -d mydomain.me --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
 ```
+或者同时安装子域名证书和密钥安装到 /etc/v2ray 中：
+```
+$ sudo ~/.acme.sh/acme.sh --installcert -d mydomain.me -d www.mydomain.me -d v01.mydomain.me -d v02.mydomain.me -d v03.mydomain.me -d v04.mydomain.me -d v05.mydomain.me -d v06.mydomain.me -d v07.mydomain.me -d v08.mydomain.me -d v09.mydomain.me --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
+```
 
 #### RSA 证书
 
 ```
 $ sudo ~/.acme.sh/acme.sh --installcert -d mydomain.me --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key
+```
+或者同时安装子域名证书和密钥安装到 /etc/v2ray 中：
+```
+$ sudo ~/.acme.sh/acme.sh --installcert -d mydomain.me -d www.mydomain.me -d v01.mydomain.me -d v02.mydomain.me -d v03.mydomain.me -d v04.mydomain.me -d v05.mydomain.me -d v06.mydomain.me -d v07.mydomain.me -d v08.mydomain.me -d v09.mydomain.me --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key
 ```
 
 **注意：无论什么情况，密钥(即上面的v2ray.key)都不能泄漏，如果你不幸泄漏了密钥，可以使用 acme.sh 将原证书吊销，再生成新的证书，吊销方法请自行参考 acme.sh 的手册**
