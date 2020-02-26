@@ -307,7 +307,7 @@ $ sudo ~/.acme.sh/acme.sh --installcert -d mydomain.me -d www.mydomain.me -d v01
       "settings": {
         "vnext": [
           {
-            "address": "mydomain.me", // tls 需要域名，所以这里应该填自己的域名
+            "address": "mydomain.me", // tls 需要域名，所以这里应该填自己的域名。如果前面配置了子域名，可以使用其中一个子域名，子域名被封可换另一个子域名
             "port": 443,
             "users": [
               {
