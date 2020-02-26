@@ -25,7 +25,7 @@ TLS 需要一个域名，域名有免费的和有付费的，如果你不舍得�
 
 **以下假设注册的域名为 mydomain.me，请将之替换成自己的域名。**
 
-## 证书生成
+## 主域名证书生成
 
 TLS 是证书认证机制，所以使用 TLS 需要证书，证书也有免费付费的，同样的这里使用免费证书，证书认证机构为 [Let's Encrypt](https://letsencrypt.org/)。
 证书的生成有许多方法，这里使用的是比较简单的方法：使用 [acme.sh](https://github.com/Neilpang/acme.sh) 脚本生成，本部分说明部分内容参考于[acme.sh README](https://github.com/Neilpang/acme.sh/blob/master/README.md)。
@@ -116,7 +116,7 @@ gPUI45eltrjcv8FCSTOUcT7PWCa3
 执行以下命令生成多个子域名证书：
 以下的命令会临时监听 80 端口，请确保执行该命令前 80 端口没有使用，并确保所有子域名的A记录到VPS的ip地址。
 ```
-$ sudo ~/.acme.sh/acme.sh --issue --standalone -k ec-256 -d mydomain.me -d v01.mydomain.me -d v02.mydomain.me -d v03.mydomain.me -d v04.mydomain.me -d v05.mydomain.me -d v06.mydomain.me -d v07.mydomain.me -d v08.mydomain.me -d v09.mydomain.me
+$ sudo ~/.acme.sh/acme.sh --issue --standalone -k ec-256 -d mydomain.me -d www.mydomain.me -d v01.mydomain.me -d v02.mydomain.me -d v03.mydomain.me -d v04.mydomain.me -d v05.mydomain.me -d v06.mydomain.me -d v07.mydomain.me -d v08.mydomain.me -d v09.mydomain.me
 [Wed 26 Feb 2020 07:16:01 AM MSK] Standalone mode.
 [Wed 26 Feb 2020 07:16:01 AM MSK] Standalone mode.
 [Wed 26 Feb 2020 07:16:01 AM MSK] Standalone mode.
