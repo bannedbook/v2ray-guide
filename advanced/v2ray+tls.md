@@ -23,6 +23,9 @@ TLS 需要一个域名，域名有免费的和有付费的，如果你不舍得�
 
 **注册好域名之后务必记得添加一个 A 记录指向你的 VPS!**
 
+另外，为了避免主域名被封锁，推荐先使用子域名，所以预备一些子域名也 A 记录指向你的 VPS! 比如：
+v01.eurodns.cf v02.eurodns.cf v03.eurodns.cf v04.eurodns.cf v05.eurodns.cf v06.eurodns.cf v07.eurodns.cf v08.eurodns.cf v09.eurodns.cf
+
 **以下假设注册的域名为 mydomain.me，请将之替换成自己的域名。**
 
 ## 证书生成
